@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de memes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;900&family=Mulish:wght@200&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5e31bbe155.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="modo-oscuro" style="cursor: auto;">
+    <!-- Header -->
+    <header class="contenedor-titulo">
+        <h1 class="titulo-principal">
+            Generador de memes
+        </h1>
+        <div class="contenedor-menu">
+            <button class="texto-boton" id="boton-panel-imagen">
+                <i class="fa-solid fa-image" aria-hidden="true"></i>
+                Imagen
+            </button>
+            <button class="texto-boton" id="boton-panel-texto">
+                <i class="fa-solid fa-font" aria-hidden="true"></i>
+                Texto
+            </button>
+            <button class="texto-boton" id="">
+                <i class="fa-regular fa-lightbulb" aria-hidden="true"></i>
+                Modo oscuro
+            </button>
+        </div>
+    </header>
+    <div class="contenedor-editor">
+    <!-- Cuerpo que contiene la imagen para editar -->
+        <main class="contenedor-meme">
+            <div class="canvas-meme">
+                <p id="top-text" class="texto-meme">
+                    TOP TEXT
+                </p>
+                <div src alt id="imagen-meme" aria-label="Imagen de meme"></div>
+                <p id="bottom-text" class="texto-meme">
+                    BOTTOM TEXT
+                </P>
+            </div>
+            <button type="boton" class="boton-descargar" id="boton-descargar-meme">
+                <i class="fa-solid fa-download" style="color: #ffffff;" aria-hidden="true"></i>
+                    Descargar meme
+            </button>
+        </main>
+    </div>
+    <aside class="panel-oculto" id="panel">
+        <button class="panel-close-button" id="panel-close-button" aria-label="Cerrar panel">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        <!-- Panel de control de edición de imagen -->
+        <section class="panel-img" id="panel-img">
+            <h2 class="titulo-panel">
+                IMAGEN
+            </h2>
+            <div class="panel-control">
+                <h3 class="panel-control-titulo">
+                    URL
+                </h3>
+                <input type="text" class="panel-control-input" id="url-img-input" aria-label="URL de imagen">
+            </div>
+        <!-- Edición del fondo de la imagen -->
+            <div class="panel-control">
+                <h3 class="panel-control-titulo">FONDO</h3>
+                <div class="panel-control-columns">
+                    <div class="panel-control-color panel-control-column">
+                    <input aria-label="Color de fondo de imagen" type="color" id="blend-mode-color-input" value="#FFFFFF">
+                    <span id="blend-mode-color" aria-hidden="true">#FFFFFF</span>
+            </div>
+            <div class="panel-control-column">
+                <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input">
+                    <option value="unset">Ninguno</option>
+                    <option value="lighten">Aclarar</option>
+                    <option value="darken">Oscurecer</option>
+                    <option value="difference">Diferencia</option>
+                    <option value="luminosity">Luminosidad</option>
+                    <option value="multiply">Multiplicar</option>
+                </select>
+            </div>
+            <!-- Filtros-->
+            <div class="panel-control">
+                <h3 class="panel-control-title">FILTROS</h3>
+                <div class="panel-control-slider">
+                    <label for="brightness-slider">BRILLO</label>
+                    <input type="range" id="brightness-slider" min="0" max="1" value="1" step="0.1">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="opacity-slider">OPACIDAD</label>
+                    <input type="range" id="opacity-slider" min="0" max="1" value="1" step="0.1">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="contrast-slider">CONTRASTE</label>
+                    <input type="range" id="contrast-slider" min="100" max="1000" value="100">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="blur-slider">DESENFOQUE</label>
+                    <input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="grayscale-slider">ESCALA DE GRISES</label>
+                    <input type="range" id="grayscale-slider" min="0" max="100" value="0">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="sepia-slider">SEPIA</label>
+                    <input type="range" id="sepia-slider" min="0" max="100" value="0">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="hue-slider">HUE</label>
+                    <input type="range" id="hue-slider" min="0" max="360" value="0">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="saturate-slider">SATURADO</label>
+                    <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
+                </div>
+                <div class="panel-control-slider">
+                    <label for="invert-slider">NEGATIVO</label>
+                    <input type="range" id="invert-slider" min="0" max="1" value="0" step="0.1">
+                </div>
+            </div>
+            <button class="button button-default" id="default-filters-button">Reestablecer filtros</button>
+        </section>
+    </aside>
+</body>
+</html>
